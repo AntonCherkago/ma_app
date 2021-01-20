@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  has_many  :posts
+  has_many  :posts, dependent: :destroy
   has_many  :images, as: :imageable
   has_many  :groups, through: :memberships
+  has_many  :memberships
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 8 }
   validates :username, :email, :password, presence: true
