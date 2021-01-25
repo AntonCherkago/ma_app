@@ -3,9 +3,9 @@ class User < ApplicationRecord
   has_many  :images, as: :imageable
   has_many  :groups, through: :memberships
   has_many  :memberships
-  validates :username, :email, uniqueness: true
+  validates :personal_data, :email, uniqueness: true
   validates :password, length: { minimum: 8 }
-  validates :username, :email, :password, presence: true
+  validates :personal_data, :email, :password, presence: true
   scope :adults, -> { where('birthday >= ?', 18.years.from_now) }
 
   def full_name
