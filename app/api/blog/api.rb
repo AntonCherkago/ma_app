@@ -1,5 +1,5 @@
-class Masters::API < Grape::API
+class Blog::API < Grape::API
   format :json
   prefix :api
-  #mount Masters::Posts
+  mount Blog::Posts => 'api/v1'
 end
